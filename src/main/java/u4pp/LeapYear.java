@@ -1,6 +1,12 @@
 package u4pp;
 
 public class LeapYear {
+
+    /**
+	 * Checks if the given year is a leap year.
+	 * @param year the year that will be checked.
+     * @return true if the given year is a leap year.
+	 */
     public static boolean isLeapYear(int year){
     //Everything before 1582 is not a leap year
         if(year >= 1582){
