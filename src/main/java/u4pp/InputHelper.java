@@ -19,12 +19,12 @@ public class InputHelper {
 	 */
     public boolean getYesNoInput(String prompt){
         System.out.println(prompt);
-        String userInput = input.nextLine().substring(0, 1).toLowerCase();
-
+        String userInput = (input.next().substring(0, 1)).toLowerCase();
+        
         while(!(userInput.equals("y")) && !(userInput.equals("n"))) {
             System.out.println("Input is invalid.");
             System.out.println(prompt);
-            userInput = input.nextLine().substring(0, 1).toLowerCase();
+            userInput = (input.next().substring(0, 1)).toLowerCase();
         }
         if(userInput.equals("y")){
             return true;
