@@ -40,13 +40,27 @@ public class InputHelper {
      * @return userInput if input is larger than or equal to min & less than or equal to max.
 	 */
     public int getIntegerInput(String prompt, int min, int max){
-        System.out.println(prompt);
-        int userInput = input.nextInt();
-        while(userInput < min || userInput > max){
-            System.out.println("Input is invalid.");
-            System.out.println(prompt);
-            userInput = input.nextInt();
+        int num = 0;
+
+        boolean inputError = false;
+        while (!inputError) {
+            try {
+                System.out.println(prompt);
+                String userInput = input.nextLine();
+                num = Integer.parseInt(userInput);
+                
+                while(num < min || num > max){
+                    System.out.println("Input is invalid.");
+                    System.out.println(prompt);
+                    userInput = input.nextLine();
+                    num = Integer.parseInt(userInput);
+                }
+                inputError = true;
+            }catch (NumberFormatException e) {
+                System.out.println("Input is invalid.");
+            }
         }
-        return userInput;
+
+        return num;
     }
 }
